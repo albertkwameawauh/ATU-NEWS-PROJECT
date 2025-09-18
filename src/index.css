@@ -1,42 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ATU News Website Design System - Professional University Theme */
 
 @layer base {
   :root {
+    /* University Color Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 217 19% 27%;
+    
+    /* University Primary - Professional Blue */
+    --primary: 213 94% 36%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 94% 42%;
+    
+    /* University Secondary - Academic Gold */
+    --secondary: 45 93% 58%;
+    --secondary-foreground: 217 19% 27%;
+    --secondary-hover: 45 93% 52%;
+    
+    /* News Categories */
+    --academic: 213 94% 36%;
+    --sports: 142 71% 45%;
+    --campus: 262 83% 58%;
+    --research: 25 95% 53%;
+    --announcements: 348 83% 47%;
+    
+    /* UI Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
+    --card-foreground: 217 19% 27%;
+    --card-hover: 210 40% 98%;
+    
+    --muted: 210 40% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
+    
+    --accent: 210 40% 96%;
+    --accent-foreground: 217 19% 27%;
+    
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --ring: 213 94% 36%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Design System Enhancements */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 36%), hsl(213 94% 42%));
+    --gradient-secondary: linear-gradient(135deg, hsl(45 93% 58%), hsl(45 93% 52%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 94% 36%), hsl(262 83% 58%));
+    --gradient-news: linear-gradient(180deg, transparent, hsl(0 0% 0% / 0.6));
+    
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+    --shadow-card-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+    --shadow-news-card: 0 8px 25px -5px hsl(0 0% 0% / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +129,48 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+  
+  .shadow-news-card {
+    box-shadow: var(--shadow-news-card);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .news-card-overlay {
+    background: var(--gradient-news);
   }
 }
